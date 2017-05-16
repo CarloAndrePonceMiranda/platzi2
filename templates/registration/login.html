@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="col-sm-6 col-sm-offset-3">
+	<h2 class="text-align-center">Iniciar Sesión</h2>
+	<form method="post" action=".">
+  {% csrf_token %} 
+  {% bootstrap_form form %}
+  <input type="submit" value="{% trans 'Log in' %}" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</form>
+<p>{% trans "Olvidaste tu contraseña" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Restaurar Contraseña" %}</a>!</p>
+<p>{% trans "Aún no eres miembro" %}? <a href="{% url 'registration_register' %}">{% trans "Registrate" %}</a>!</p>
+</div>
+{% endblock %}

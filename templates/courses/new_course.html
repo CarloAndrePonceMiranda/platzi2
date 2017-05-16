@@ -1,0 +1,20 @@
+
+	{% extends 'adminlte/base.html' %}
+	<meta charset="UTF-8">
+	{% block title %}Agregar Playera{% endblock %}
+	{% block content %}
+	{% load staticfiles %}
+	{% load bootstrap3 %}
+	{% load i18n %}
+	
+	<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+	<h1>Agregar Playera</h1>
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+		 <button type="submit" class="ui-button">{% bootstrap_icon "plus" %}Agregar</button>
+        {% endbuttons %}
+	</form>
+	
+{% endblock %}  

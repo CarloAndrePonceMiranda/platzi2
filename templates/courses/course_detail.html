@@ -1,0 +1,23 @@
+{% extends 'adminlte/base.html' %}
+	{% block title %}Course Detail{% endblock %}
+	{% block content %}
+	{% load bootstrap3 %}
+	<h1>{{ course.Nombre }}</h1>
+<p>Fecha de inicio: <i>{{ course.Fecha_inicio }}</i></p>
+<p>Fecha de fin: <i>{{ course.Fecha_fin }}</i></p>
+	{% buttons %}
+		<a href="{% url "courses:edit" course.id %}">
+			<button type="submit" class="ui-button">{% bootstrap_icon "pencil" %}Editar</button>
+		 </a>
+        {% endbuttons %}
+	<img width="200px" height="150px" src="{{ course.Imagen.url }}">
+	{% buttons %}
+		<a href="{% url "courses:list" %}">
+			<button type="submit" class="ui-button">{% bootstrap_icon "arrow-left" %}Regresar</button>
+		 </a>
+        {% endbuttons %}
+
+{% endblock %}
+
+
+2017-03-17 15:06

@@ -1,0 +1,16 @@
+  {% extends 'adminlte/base.html' %}
+  <meta charset="UTF-8">
+  {% block title %}Home{% endblock %}
+  {% block content %}
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% load bootstrap3 %}
+  {% load i18n %}
+  {% if request.user.is_authenticated %}
+                <h1>Bienvenido a Platzi {% firstof request.user.get_short_name request.user.get_username %}</h1>
+                {% else %}
+                <h1>Bienvenido</h1>
+                <h2>Cursos de Platzi</h2>
+                <h3>Administración</h3>
+                {% endif %}
+{% endblock %}  

@@ -1,0 +1,10 @@
+{% extends 'adminlte/base.html' %}
+	{% block title %}Course Detail{% endblock %}
+	{% block content %}
+	{% load bootstrap3 %}
+<form method="post">{% csrf_token %}
+    <h1>¿Estás seguro que deseas borrar el curso "{{ course.Nombre }}"?</h1>
+    <br>
+    <input type="submit" value="Borrar" />
+</form>
+	{% endblock %}

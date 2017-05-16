@@ -1,0 +1,10 @@
+{% extends 'adminlte/base.html' %}
+	{% block title %}Add and Edit{% endblock %}
+	{% block content %}
+	{% load bootstrap3 %}
+	<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="Agregar" />
+</form>
+{% endblock %}

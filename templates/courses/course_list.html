@@ -1,0 +1,27 @@
+{% extends 'adminlte/base.html' %}
+	{% block title %}Cursos de Platzi{% endblock %}
+	{% block content %}
+    	{% load bootstrap3 %}	
+        <h1>Cursos de Platzi</h1>
+        <a href="{% url "courses:pdf" %}"><button type="submit" class="ui-button">{% bootstrap_icon "save-file" %}pdf</button></a>
+        <a href="{% url "courses:grafica" %}"><button type="submit" class="ui-button">{% bootstrap_icon "save-file" %}Gráfica</button></a>
+        <br><br>
+        <table border="10px solid">
+            <tr>
+                <td align="center" class="td">Nombre</td>
+                <td align="center" class="td">Miniatura</td>
+                <td align="center" class="td">Acciones</td>
+            </tr>
+        {% for course in object_list %}
+            <tr>
+                <td align="center" style="vertical-align:middle">{{ course.Nombre }}<td>
+                <img width="200px" height="150px" src="{{ course.Imagen.url }}">
+                <td style="vertical-align:middle">
+                    {% buttons %}
+                    <a href="{% url "courses:detail" course.id %}"><button type="submit" class="ui-button">{% bootstrap_icon "eye-open" %}Ver</button></a>
+                    <a href="{% url "courses:delete" course.id %}"><button type="submit" class="ui-button">{% bootstrap_icon "erase" %}Borrar</button></a>
+                    {% endbuttons %}    
+                </td>
+            </tr>
+        {% endfor %}
+{% endblock %}  
